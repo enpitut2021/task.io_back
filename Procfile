@@ -1,1 +1,1 @@
-web:gunicorn taskio.wsgi
+web: gunicorn taskio.wsgi --log-file -
