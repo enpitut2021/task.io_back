@@ -25,12 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-i$f&u@5@3sd7j=h@srk-#h0p&)as5%ytr#r_1!fikb8mmct6ee"
 
 #SECRET_KEY = ""
-#try:
-#    from . import local_settings
-#    
-#except ImportError:
-#    pass
-#
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -141,6 +137,11 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+try:
+    from . import local_settings
+    
+except ImportError:
+    pass
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
