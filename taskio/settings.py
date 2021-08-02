@@ -22,7 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = "django-insecure-i$f&u@5@3sd7j=h@srk-#h0p&)as5%ytr#r_1!fikb8mmct6ee"
 
+#SECRET_KEY = ""
+#try:
+#    from . import local_settings
+#    
+#except ImportError:
+#    pass
+#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -85,6 +93,9 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -128,6 +139,8 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

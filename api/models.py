@@ -61,9 +61,9 @@ class Task(models.Model):
     title = models.CharField(max_length=100)
     detail = models.TextField(max_length=200, blank = True, null = True)
     tasktime = models.DurationField()
-    deadline = models.DateTimeField()
+    deadline = models.DateTimeField(default=timezone.now)
 
 class Calendar_Event(models.Model):
-    start=models.DateTimeField()
-    end=models.DateTimeField()
+    start=models.DateTimeField(default=timezone.now)
+    end=models.DateTimeField(default=timezone.now)
     summary=models.CharField(max_length=100)

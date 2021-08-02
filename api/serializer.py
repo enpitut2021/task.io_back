@@ -10,4 +10,4 @@ class UserSerialzer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ("title", "detail", "deadline")
+        fields = ("title", "detail", "tasktime","deadline")

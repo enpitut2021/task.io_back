@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import ugettext_lazy as _
-from .models import User,Task,Calendar_Event
+from .models import User
+from .models import Task,Calendar_Event
 # Register your models here.
 
 class MyUserChangeForm(UserChangeForm):
