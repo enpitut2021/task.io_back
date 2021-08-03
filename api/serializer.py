@@ -10,9 +10,11 @@ class UserSerialzer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ("title", "detail", "tasktime","deadline")
+        fields = ("title", "detail", "tasktime","deadline","created_at")
 
 class Daily_TaskSerializer(serializers.ModelSerializer):
+    task = TaskSerializer
     class Meta:
         model = Daily_Task
         fields = ("date","task")
+    

@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 import datetime
 
+
 class UserManager(BaseUserManager):
     
     use_in_migrations = True
@@ -62,11 +63,11 @@ class Task(models.Model):
     detail = models.TextField(max_length=200, blank = True, null = True)
     tasktime = models.DurationField()
     deadline = models.DateTimeField(default=timezone.now)
-
+    created_at = models.DateTimeField(auto_now=True)
+    
 class Daily_Task(models.Model):
     date = models.DateTimeField()
-    task = models.ManyToManyField(Task.objects.get(deadline__gte=date),blank=True)
-
+    task = models.ManyToManyField(Task,blank=True)
 
 class Calendar_Event(models.Model):
     start=models.DateTimeField(default=timezone.now)
