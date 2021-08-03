@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import ugettext_lazy as _
 from .models import User
-from .models import Task,Calendar_Event
+from .models import Task,Calendar_Event,Daily_Task
 # Register your models here.
 
 class MyUserChangeForm(UserChangeForm):
@@ -51,3 +51,4 @@ class MyUserAdmin(UserAdmin):
 admin.site.register(User, MyUserAdmin)
 admin.site.register(Task)
 admin.site.register(Calendar_Event)
+admin.site.register(Daily_Task)
