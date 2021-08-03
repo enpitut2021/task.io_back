@@ -27,14 +27,14 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 
 
-class Daily_TaskViewSet(viewsets.ModelViewSet):
-    daily_tasks = Daily_Task.objects.all()
-    for daily_task in daily_tasks:
-        date_today = daily_task.date
-        tasks_add = Task.objects.get(deadline__gte=date_today)
-        daily_task.task.add(tasks_add)
-        daily_task.save()
-    queryset = Daily_Task.objects.all()
-    serializer_class = Daily_TaskSerializer
+#class Daily_TaskViewSet(viewsets.ModelViewSet):
+#    daily_tasks = Daily_Task.objects.all()
+#    for daily_task in daily_tasks:
+#        date_today = daily_task.date
+#        tasks_add = Task.objects.get(deadline__gte=date_today)
+#        daily_task.task.add(tasks_add)
+#        daily_task.save()
+#    queryset = Daily_Task.objects.all()
+#    serializer_class = Daily_TaskSerializer
 
    

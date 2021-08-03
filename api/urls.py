@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .views import Daily_TaskViewSet
+#from .views import Daily_TaskViewSet
 from .views import UserViewSet, TaskViewSet
 from django.urls import path
 
