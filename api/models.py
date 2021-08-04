@@ -73,3 +73,8 @@ class Calendar_Event(models.Model):
     start=models.DateTimeField(default=timezone.now)
     end=models.DateTimeField(default=timezone.now)
     summary=models.CharField(max_length=100)
+
+class Progress(models.Model):
+    date = models.DateTimeField()
+    progress = models.IntegerField(validators=[validators.MinValueValidator(0), validators.MaxValueValidator(100)])
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name="progress")
