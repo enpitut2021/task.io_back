@@ -31,8 +31,9 @@ class Daily_TaskViewSet(viewsets.ModelViewSet):
     progress = Progress.objects.all()
     for daily_task in daily_tasks:
         date_today = daily_task.date
-        tasks_add = Task.objects.get(deadline__gte=date_today)
-        daily_task.task.add(tasks_add)
+        tasks_add = Task.objects.filter(deadline__gte=date_today)
+        for task_add in tasks_add:
+            daily_task.task.add(task_add)
         daily_task.save()
         #for each_progress in progress:
         #    if daily_task.date.date() == each_progress.date.date():
