@@ -12,14 +12,14 @@ class ProgressSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Progress
-        fields = ("progress","date")
+        fields = ("progress","date","task")
 
 class TaskSerializer(serializers.ModelSerializer):
-    progress = ProgressSerializer(many=True, read_only=True, required=False)
+    progress = ProgressSerializer(many=True, required=False)
     class Meta:
         model = Task
         fields = ("title", "detail", "tasktime", "deadline", "created_at", "progress")
-        
+
 
 class Daily_TaskSerializer(serializers.ModelSerializer):
     task = TaskSerializer(many=True)

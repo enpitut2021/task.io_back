@@ -45,10 +45,12 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'django_filters',
+    'drf_spectacular',
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    "DEFAULT_SCHEMA_CLASS": 'drf_spectacular.openapi.AutoSchema',
 }
 
 AUTH_USER_MODEL = 'api.User'

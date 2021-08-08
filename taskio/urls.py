@@ -17,7 +17,23 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from api.urls import router as api_router
+from django.conf import settings
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView 
+ 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/", include(api_router.urls)),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path(r'api/schema/',
+        SpectacularAPIView.as_view(), name='schema'),
+        #Swagger UI 形式の API ドキュメント画面
+        path(r'api/schema/swagger-ui/',
+        SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+        #ReDoc 形式の API ドキュメント画面
+        path(r'api/schema/redoc/',
+        SpectacularRedocView.as_view(url_name='schema'), name = 'redoc'),
+
+    ] 
